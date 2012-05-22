@@ -19,10 +19,6 @@
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  THE SOFTWARE.
 */
-#ifdef __APPLE__
-#include <Python/Python.h>
-#include <Python/structmember.h>
-#else
 #include <Python.h>
 #include <structmember.h>
-#endif
+

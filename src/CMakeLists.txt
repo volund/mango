@@ -60,7 +60,7 @@ if(${PYTHONLIBS_FOUND})
   file(GLOB Mango_pygeometry_src "${PROJECT_SOURCE_DIR}/pygeometry/*.cpp")
 
   add_library(Mango_pygeometry SHARED ${Mango_pygeometry_src})
-  target_link_libraries(Mango_pygeometry ${PYTHON_LIBRARIES} Mango_core Mango_geometry)
+  target_link_libraries(Mango_pygeometry ${PYTHON_LIBRARIES} Mango_core Mango_geometry Mango_py)
 
 if(${GLUT_FOUND})
   include_directories(${GLUT_INCLUDE_DIR})
