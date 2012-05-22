@@ -1,0 +1,5 @@
+// Configured options and settings used for Mango
+
+#define MANGO_VERSION_MAJOR @MANGO_VERSION_MAJOR@
+#define MANGO_VERSION_MINOR @MANGO_VERSION_MINOR@
+
