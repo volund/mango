@@ -13,6 +13,18 @@ file(GLOB Mango_draw_src "${PROJECT_SOURCE_DIR}/draw/*.cpp")
 file(GLOB Mango_geometry_src "${PROJECT_SOURCE_DIR}/geometry/*.cpp")
 file(GLOB Mango_glut_src "${PROJECT_SOURCE_DIR}/glut/*.cpp")
 
+# Add -fPIC on 64bit machines
+if (UNIX AND NOT WIN32)
+  find_program(CMAKE_UNAME uname /bin /usr/bin /usr/local/bin )
+  if (CMAKE_UNAME)
+    exec_program(uname ARGS -m OUTPUT_VARIABLE CMAKE_SYSTEM_PROCESSOR)
+    set(CMAKE_SYSTEM_PROCESSOR ${CMAKE_SYSTEM_PROCESSOR} CACHE INTERNAL "processor type(i386 and x86_64)")
+    if (CMAKE_SYSTEM_PROCESSOR MATCHES "x86_64")
+      add_definitions(-fPIC)
+    endif (CMAKE_SYSTEM_PROCESSOR MATCHES "x86_64")
+  endif(CMAKE_UNAME)
+endif(UNIX AND NOT WIN32)
+
 add_library(Mango_core ${Mango_core_src})
 target_link_libraries(Mango_core ${OPENGL_LIBRARIES})
 
@@ -46,7 +58,8 @@ if(${PYTHONLIBS_FOUND})
   target_link_libraries(Mango_py ${PYTHON_LIBRARIES} Mango_core Mango_draw)
 
   file(GLOB Mango_pygeometry_src "${PROJECT_SOURCE_DIR}/pygeometry/*.cpp")
-  add_library(Mango_pygeometry ${Mango_pygeometry_src})
+
+  add_library(Mango_pygeometry SHARED ${Mango_pygeometry_src})
   target_link_libraries(Mango_pygeometry ${PYTHON_LIBRARIES} Mango_core Mango_geometry)
 
 if(${GLUT_FOUND})
