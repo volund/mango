@@ -21,12 +21,15 @@
 */
 #include <iostream>
 #include <mango/mango.h>
-
+#include <MangoConfig.h>
 
 namespace Mango{	       
+  char _mango_version[10] = {0};
 
   const char* full_version_string(){
-    return "1.0";
+    if (_mango_version[0] == '\0')
+      sprintf(_mango_version, "%d.%d", MANGO_VERSION_MAJOR, MANGO_VERSION_MINOR);
+    return _mango_version;
   }
 	
   void initialize(bool setup_default_environment){

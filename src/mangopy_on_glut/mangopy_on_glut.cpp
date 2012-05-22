@@ -32,14 +32,6 @@ void print_version();
 int main(int argc, char *argv[]){
   int return_val;
  
-  // Py_SetPath(L"/usr/lib/python3.2");
-  // Py_SetPythonHome(L"/usr/");
-  // Py_SetProgramName(L"/usr/bin/python3.2");
-
-  std::wcout << Py_GetPath() << std::endl;
-  std::wcout << Py_GetPrefix() << std::endl;
-  std::wcout << Py_GetExecPrefix() << std::endl;
-
   MangoPy::initialize(argc, argv);
   Mango::OnGlut::initialize(argc, argv);
  
@@ -52,6 +44,7 @@ int main(int argc, char *argv[]){
     else{
       char *show_version = MangoPy::check_cmd_op_presence(argv, argv+argc, "-v");
       char *show_help = MangoPy::check_cmd_op_presence(argv, argv+argc, "-h");
+
       if (show_version){
 	print_version();
 	return_val = 3;

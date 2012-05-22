@@ -1,6 +1,18 @@
 cmake_minimum_required(VERSION 2.8)
 project(Mango_libs)
 
+# Version number
+set(MANGO_VERSION_MAJOR 1)
+set(MANGO_VERSION_MINOR 1)
+
+# Configure header 
+configure_file (
+  "${PROJECT_SOURCE_DIR}/MangoConfig.h.in"
+  "${PROJECT_SOURCE_DIR}/../include/MangoConfig.h"
+  )
+
+
+
 find_package(OpenGL REQUIRED)
 
 include_directories(${OPENGL_INCLUDE_DIR})
