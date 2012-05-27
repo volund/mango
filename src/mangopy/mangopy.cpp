@@ -185,14 +185,14 @@ namespace MangoPy{
       exec_path[2047] = NULL;
     }
     wide_exec_path = char2wchar(exec_path);
-    // Py_SetProgramName(wide_exec_path);
+    Py_SetProgramName(wide_exec_path);
        
 #if !defined(WIN32)
     // Set Home Path
     // Windows seems to set exec_prefix just fine without this, so
     // it is skipped on windows until needed
-    python_home_path(exec_path, home_path, 2048);
-    wide_home_path = char2wchar(home_path);
+    //python_home_path(exec_path, home_path, 2048);
+    //wide_home_path = char2wchar(home_path);
     // Py_SetPythonHome(wide_home_path);       
 #endif
 
@@ -242,8 +242,12 @@ namespace MangoPy{
     PyRun_SimpleString("import os, sys");
     PyModule_AddStringConstant(module_core, "MANGO_LAUNCH_PATH", exec_path);
     PyRun_SimpleString("Core.MANGO_ABSOLUTE_PATH = os.path.dirname(os.path.normpath(os.path.realpath(Core.MANGO_LAUNCH_PATH)))");
+    PyRun_SimpleString("Core.MANGO_INSTALL_PREFIX = os.path.normpath(os.path.join(Core.MANGO_ABSOLUTE_PATH, '..'))");
+    PyRun_SimpleString("Core.MANGO_MANGOPY_LIBS = os.path.join(Core.MANGO_INSTALL_PREFIX, 'lib/mangopy')");
+      
     PyRun_SimpleString("sys.path.append(Core.MANGO_ABSOLUTE_PATH)");
-    PyRun_SimpleString("sys.path.append(os.path.normpath(os.path.join(Core.MANGO_ABSOLUTE_PATH, '../script')))");
+    PyRun_SimpleString("sys.path.append(Core.MANGO_MANGOPY_LIBS)");
+    //PyRun_SimpleString("sys.path.append(os.path.normpath(os.path.join(Core.MANGO_ABSOLUTE_PATH, '../lib/mangopy')))");
 
     // Make the Core module globally available
     PyRun_SimpleString("__builtins__._mpygen = _mpygen");

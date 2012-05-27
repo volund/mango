@@ -72,6 +72,11 @@ if(${PYTHONLIBS_FOUND})
   file(GLOB Mango_pygeometry_src "${PROJECT_SOURCE_DIR}/pygeometry/*.cpp")
 
   add_library(Mango_pygeometry SHARED ${Mango_pygeometry_src})
+  set_target_properties(Mango_pygeometry PROPERTIES PREFIX "")
+  if(WIN32)
+     set_target_properties(Mango_pygeometry PROPERTIES SUFFIX ".pyd")
+  endif(WIN32)
+  set_target_properties(Mango_pygeometry PROPERTIES OUTPUT_NAME "Geometry")
   target_link_libraries(Mango_pygeometry ${PYTHON_LIBRARIES} Mango_core Mango_geometry Mango_py)
 
 if(${GLUT_FOUND})
@@ -85,3 +90,19 @@ endif()
 else()
   message("Not building the Python Bindings. No Python installation has been found.")
 endif()
+
+
+
+
+# Install
+install(TARGETS mango DESTINATION bin)
+install(TARGETS Mango_pygeometry DESTINATION lib/mangopy/) 
+
+file(GLOB Mango_py_samples "${PROJECT_SOURCE_DIR}/../samples_mangopy/mangopy/*.py")
+install(FILES ${Mango_py_samples} DESTINATION share/mangopy/samples/)
+
+install(TARGETS Mango_core DESTINATION lib)
+install(TARGETS Mango_geometry DESTINATION lib)
+install(TARGETS Mango_draw DESTINATION lib)
+install(TARGETS Mango_glut DESTINATION lib)
+install(TARGETS Mango_py DESTINATION lib)
