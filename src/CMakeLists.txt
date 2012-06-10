@@ -109,3 +109,27 @@ endif()
 install(TARGETS mango_core DESTINATION lib)
 install(TARGETS mango_geometry DESTINATION lib)
 install(TARGETS mango_onglut DESTINATION lib)
+
+file(GLOB base_include "${PROJECT_SOURCE_DIR}/../include/*.h")
+install(FILES ${base_include} DESTINATION include/mango)
+
+file(GLOB mango_include "${PROJECT_SOURCE_DIR}/../include/mango/*.h")
+install(FILES ${mango_include} DESTINATION include/mango/)
+
+file(GLOB mango_core_include "${PROJECT_SOURCE_DIR}/../include/mango/core/*.h")
+install(FILES ${mango_core_include} DESTINATION include/mango/core)
+
+file(GLOB mango_draw_include "${PROJECT_SOURCE_DIR}/../include/mango/draw/*.h")
+install(FILES ${mango_draw_include} DESTINATION include/mango/draw)
+
+file(GLOB mango_geometry_include "${PROJECT_SOURCE_DIR}/../include/mango/geometry/*.h")
+install(FILES ${mango_geometry_include} DESTINATION include/mango/geometry)
+
+file(GLOB mango_glut_include "${PROJECT_SOURCE_DIR}/../include/mango/glut/*.h")
+install(FILES ${mango_glut_include} DESTINATION include/mango/glut)
+
+file(GLOB mango_mangopy_include "${PROJECT_SOURCE_DIR}/../include/mango/mangopy/*.h")
+install(FILES ${mango_mangopy_include} DESTINATION include/mango/mangopy)
+
+file(GLOB mango_pygeometry_include "${PROJECT_SOURCE_DIR}/../include/mango/pygeometry/*.h")
+install(FILES ${mango_pygeometry_include} DESTINATION include/mango/pygeometry)
