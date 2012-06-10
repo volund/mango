@@ -1,0 +1,5 @@
+Install doxygen (1.7.4)
+Install breathe (0.7.5)
+Install Sphinx (1.1.2)
+doxygen Doxyfile
+make html
