@@ -95,14 +95,18 @@ endif()
 
 
 # Install
-install(TARGETS mango DESTINATION bin)
-install(TARGETS Mango_pygeometry DESTINATION lib/mangopy/) 
+if(${PYTHONLIBS_FOUND})
+  install(TARGETS mango DESTINATION bin)
 
-file(GLOB Mango_py_samples "${PROJECT_SOURCE_DIR}/../samples_mangopy/mangopy/*.py")
-install(FILES ${Mango_py_samples} DESTINATION share/mangopy/samples/)
+  install(TARGETS Mango_pygeometry DESTINATION lib/mangopy/) 
+
+  file(GLOB Mango_py_samples "${PROJECT_SOURCE_DIR}/../samples_mangopy/mangopy/*.py")
+  install(FILES ${Mango_py_samples} DESTINATION share/mangopy/samples/)
+  
+  install(TARGETS Mango_py DESTINATION lib)
+endif()
 
 install(TARGETS Mango_core DESTINATION lib)
 install(TARGETS Mango_geometry DESTINATION lib)
 install(TARGETS Mango_draw DESTINATION lib)
 install(TARGETS Mango_glut DESTINATION lib)
-install(TARGETS Mango_py DESTINATION lib)
