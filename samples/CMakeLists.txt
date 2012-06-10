@@ -9,7 +9,7 @@ foreach(filepath ${samples})
   get_filename_component(filename ${filepath} NAME)
   get_filename_component(name ${filepath} NAME_WE)
   add_executable(${name} ${filepath})
-  target_link_libraries(${name} Mango_glut Mango_geometry Mango_core Mango_draw)
+  target_link_libraries(${name} mango_onglut mango_geometry mango_core mango_draw)
 endforeach()
 
 # dummy target to build all samples at once
