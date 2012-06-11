@@ -6,13 +6,14 @@ records the particular versions of the dependencies used on each
 platform, as well as the versions of the associated tools involved in
 the build process. 
 
-Linux (Kubuntu 10.10)
+Linux (Kubuntu 12.1)
 ---------------------
 
 * FreeGLUT 2.6.0
-* Autoconf 2.67
-* g++ 4.4.5
-* Python 3.1
+* GNU Make 3.81
+* CMake 2.8.7
+* g++ 4.6.3
+* Python 3.2
 
 OSX (10.6.2)
 ------------

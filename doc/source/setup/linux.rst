@@ -35,6 +35,7 @@ Mango's source code can be obtained by downloading an archived copy
 or by cloning the git repository. For the latest archive or repository
 address check the home page. At the time of writing the following 
 command clones the repository in the current directory:
+
   .. code-block:: bash
    
      $ git clone https://volund@github.com/volund/mango.git .
@@ -137,7 +138,7 @@ installation prefix which defaults to **/usr/local/**:
         Static libraries for mango, mango_on_glut, geometry and
         mangopy. These may linked against when developing simulations
         in C++. Currently the following libraries are installed:
-        libmango_core.a, libmango_glut.a, libmango_py.a, 
+        libmango_core.a, libmango_onglut.a, libmango_py.a, 
         libmango_geometry.a
 	
 You are also ready to build simulation in C++. See

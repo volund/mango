@@ -8,18 +8,20 @@ platform.
 Linux
 -----
 
-To remove a particular version of Mango, delete the folder
+To remove mango after it has been installed with a given installation
+prefix PREFIX remove the following files and folders (the first three
+entries are folders):
 
-  */opt/mango/<version>/*
+  |  *PREFIX/lib/mangopy*
+  |  *PREFIX/include/mango* 
+  |  *PREFIX/share/mangopy/samples* 
+  |  *PREFIX/bin/mango* 
+  |  *PREFIX/lib/libmango_core.a*
+  |  *PREFIX/lib/libmango_geometry.a*
+  |  *PREFIX/lib/libmango_onglut.a*
+  |  *PREFIX/lib/libmango_py.a*
 
-You should also make sure that */usr/local/bin/mango* does not point
-to a binary in that version.
-
-If you wish to remove all versions of Mango, delete the following
-folder and symbolic link:
-
-  |  */opt/mango*
-  |  */usr/local/bin/mango*
+The default installation prefix is */usr/local/*.
 
 
 OSX
