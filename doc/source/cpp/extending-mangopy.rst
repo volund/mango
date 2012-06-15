@@ -143,7 +143,10 @@ built by executing one of the following commands:
 
   .. code-block:: bash
   
-     $ g++ pysolids.cpp pytetrahedron.cpp -o Solids.so -fpic -shared -I/opt/mango/1.0/include/ -L/opt/mango/1.0/lib -lmango -lmong
+     $ g++ pysolids.cpp pytetrahedron.cpp -o Solids.so -fpic -shared -I/usr/include/python3.2/ -lmango_core -lmango_onglut
+
+  (Assuming that Python header files can be found at */usr/include/python3.2* - adjust as befitting your machine)
+
 
 
 **OSX**
