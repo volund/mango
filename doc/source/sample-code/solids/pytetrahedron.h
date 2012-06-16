@@ -1,4 +1,4 @@
-#include "Mango/mangopy.h"
+#include "mango/mangopy/mangopy.h"
 #include "tetrahedron.h" 
 
 #ifndef MPY_SOLIDS_PYTETRAHEDRON

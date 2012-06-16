@@ -1,4 +1,4 @@
-#include "Mango/mangopy.h"
+#include "mango/mangopy/mangopy.h"
 #include "pytetrahedron.h"
 
 // Module definition object
