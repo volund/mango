@@ -101,7 +101,7 @@ platform:
 
     .. code-block:: bash
     
-	$ g++ hello_box.cpp -o hello_box -I/opt/mango/1.0/include/ -L/opt/mango/1.0/lib -lmango -lmong -lgeometry -lglut
+	$ g++ hello_box.cpp -o hello_box -lmango_core -lmango_onglut -lmango_geometry -lglut
 
   You can then run the simulation with the following command:
 
@@ -160,7 +160,7 @@ platform:
 
 
 Notice the strong parallel between this example and the equivalent simulation
-in Python (:ref:`getting-started-python-box`). Other than the template-code 
+in Python (:ref:`getting-started-python-box`). Other than the boilerplate-code 
 that must accompany every Mango simulation in C++ - and which comprises most
 of the simulation in this case - the code is practically identical, with 
 minor syntax changes. Of course, this is a very simple simulation, but the 
@@ -223,7 +223,7 @@ Here is another example simulating a ball bouncing on a platform:
     }
        
 
-This simulation can be built with the same command as the previous example
+This simulation can be built with an equivalent command to the previous example
 after adjusting the source and output file names. Again, notice the strong
 parallels with the Python equivalent (first sample in 
 :ref:`frames-bouncing-ball-sample`).

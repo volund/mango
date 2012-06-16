@@ -11,14 +11,14 @@ provides the necessary functionality.
 
 In this first distribution of Mango, this abstraction is mostly an 
 intellectual exercise: at the time of release there are no alternatives to 
-mango_on_glut, the intermediate OS layer provided with Mango. Nonetheless, 
+mango_onglut, the intermediate OS layer provided with Mango. Nonetheless, 
 it is in keeping with Mango's modular design and its existence should make
 the task of embedding or using Mango without GLUT a relatively 
 straightforward manner. 
 
 If you wish to develop an additional intermediate OS layer, your best
-reference is the mango_on_glut source file which can be found at
-*mango_on_glut/src/mango_on_glut.cpp* relative to the root of the
+reference is the mango_onglut source file which can be found at
+*src/mango_on_glut/mango_on_glut.cpp* relative to the root of the
 source-code package. Your code will need to accomplish the same tasks,
 while also making calls to the global instances *Engine*, *Mouse* and
 *Keyboard* in the following situations:
