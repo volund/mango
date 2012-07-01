@@ -49,6 +49,31 @@ target_link_libraries(mango_geometry ${OPENGL_LIBRARIES})
 ## mango_onglut is optional
 
 find_package(GLUT)
+
+## It seems that on win32 it is necessary to link against
+## both freeglut.a and freeglut.dll (the former contains
+## methods that the latter depends on; a true static 
+## linking against freeglut would involve freeglut_static.a).
+## As of version CMake 2.8 FindGLUT.cmake doesn't handle this
+## well and does not link against freeglut.a when it finds 
+## the dll. Check for this condition and fix accordingly
+if (${WIN32})
+  if (NOT DEFINED DISABLE_FREEGLUT_DLL_FIX)
+    SET(DEFINED_DISABLE_FREEGLUT_DLL_FIX 0)
+  endif()
+  if (${DISABLE_FREEGLUT_DLL_FIX})
+    message("-- Skipping freeglut.dll fix on WIN32 due to presence of flag")
+  else()
+    if (${GLUT_LIBRARIES} MATCHES "freeglut\\.dll$")
+      message("-- Appending 'freeglut' to GLUT_LIBRARIES for correct WIN32 linking against freeglut.dll (pass -DDISABLE_FREEGLUT_DLL_FIX=1 to disable)")
+      SET(GLUT_LIBRARIES 
+          ${GLUT_LIBRARIES} 
+          freeglut)
+      message("-- New GLUT_LIBRARIES value: ${GLUT_LIBRARIES}")
+    endif()
+  endif()
+endif()
+
 if(${GLUT_FOUND})
   include_directories(${GLUT_INCLUDE_DIR})
   add_library(mango_onglut ${mango_onglut_src})
