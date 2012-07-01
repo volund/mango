@@ -52,12 +52,19 @@ Windows - C++ Development
 -------------------------
 
 In order to develop Mango simulations in C++, you will need to install
-MinGW, MSYS, GLUT and Python (the last two only if you intend to use them).
+MinGW, MSYS, CMake, GLUT and Python (the last two may be skipped if you 
+wish to use only a limited set of Mango).
 
 MinGW is available at http://www.mingw.org. Download and run the automated installer
 and when prompted to select components, mark the following: "C++ compiler",
-"MSYS Basic System" and "MingW Developer Toolkit". Once the install 
+"MSYS Basic System" and "MingW Developer Toolkit". Once the installation
 completes you should have MinGW and MSYS installed. 
+
+CMake is available from http://www.cmake.org. Download and run the Win32
+installer. If prompted about adding CMake to the path, you may select any of
+the options presented (having CMake in your path will render build commands
+simpler, though may cause problems if conflicts occur with other programs
+in your path). 
 
 There are several ways to install GLUT. My preferred method is not to install
 it at all, but rather use freeGLUT, which can be found at 

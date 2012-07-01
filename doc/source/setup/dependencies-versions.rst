@@ -27,8 +27,9 @@ OSX (10.6.2)
 Windows (XP)
 ------------
 
-* MinGW, MSYS (installed using MinGW-Get v0.2-alpha-1)
-* g++ 4.5.2
-* autoconf 2.67
-* FreeGLUT 2.6.0 (Martin Payne's Windows binaries, v2.6.0-3 for MinGW)
-* Python 3.1
+* MinGW, MSYS (installed using MinGW-Get 2011-11-18)
+* g++ 4.6.1
+* autoconf 2.68
+* CMake 2.8.8
+* FreeGLUT 2.8.0 (Martin Payne's Windows binaries, v2.8.0-1 for MinGW)
+* Python 3.2.3
