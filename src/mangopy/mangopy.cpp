@@ -243,7 +243,11 @@ namespace MangoPy{
     PyModule_AddStringConstant(module_core, "MANGO_LAUNCH_PATH", exec_path);
     PyRun_SimpleString("Core.MANGO_ABSOLUTE_PATH = os.path.dirname(os.path.normpath(os.path.realpath(Core.MANGO_LAUNCH_PATH)))");
     PyRun_SimpleString("Core.MANGO_INSTALL_PREFIX = os.path.normpath(os.path.join(Core.MANGO_ABSOLUTE_PATH, '..'))");
+#ifdef WIN32
+    PyRun_SimpleString("Core.MANGO_MANGOPY_LIBS = os.path.join(Core.MANGO_INSTALL_PREFIX, 'script')");
+#else
     PyRun_SimpleString("Core.MANGO_MANGOPY_LIBS = os.path.join(Core.MANGO_INSTALL_PREFIX, 'lib/mangopy')");
+#endif
       
     PyRun_SimpleString("sys.path.append(Core.MANGO_ABSOLUTE_PATH)");
     PyRun_SimpleString("sys.path.append(Core.MANGO_MANGOPY_LIBS)");
