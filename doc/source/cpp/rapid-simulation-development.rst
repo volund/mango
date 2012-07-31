@@ -140,7 +140,7 @@ platform:
 
     .. code-block:: bash
 
-       g++ hello_box.cpp -I/c/Program\ Files/Mango/include -L/c/Program\ Files/Mango/cxxlib -o hello_box -lmango -lmong -lgeometry -lopengl32 -lfreeglut
+       g++ hello_box.cpp -I/c/Program\ Files/Mango/1.1/include -L/c/Program\ Files/Mango/1.1/lib -o hello_box -lmango_core -lmango_geometry -lmango_onglut -lfreeglut -lopengl32
 
   You can then run the simulation from the MinGW shell by executing:
 
