@@ -64,7 +64,7 @@ dependencies. If this works, you should see output similar to:
      .3", required is "3.2")
      -- Configuring done
      -- Generating done
-     -- Build files have been written to: C:/src/mango/build
+     -- Build files have been written to: C:/src/mango/build-windows
 
 If this fails, you will see output similar to (in this case due to a failure
 to find GLUT):

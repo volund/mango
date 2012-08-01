@@ -4,24 +4,19 @@ Build Products
 Building from source will result in the following executables and libraries
 being built, relative to the root of the build directory:
 
-  * **mango**
+  * **source/mango**
       main Mango executable (OSX and Linux)
-  * **.libs/mango.exe**
+  * **source/mango.exe**
       main Mango executable (Windows)
-  * **.libs/Geometry.so**
-      Mango Geometry module
-  * **.libs/libmango.a**
-      static mango library
-  * **.libs/libgeometry.a**
+  * **source/Geometry.so**
+      Mango Geometry module (OSX and Linux)
+  * **source/Geometry.pyd**
+      Mango Geometry module (Windows)
+  * **source/libmango_core.a**
+      static core mango library
+  * **source/libmango_geometry.a**
       static geometry library
-  * **.libs/libmong.a**
+  * **source/libmango_onglut.a**
       static mango-on-glut library 
-  * **.libs/libmangopy.a**
+  * **source/libmango_py.a**
       static mangopy library
-
-  .. note::
-   
-     On windows, an executable named *mango.exe* is generated at the
-     root of the build directory, however it is not the executable of
-     interest and should be ignored. The correct executable is
-     *.libs/mango.exe*.

@@ -71,11 +71,10 @@ different than the one supported by Mango (to check, fire up the terminal
 and type "python --version", then compare the value to that in 
 :doc:`dependencies-versions`).
 
-Regardless of Python, once XCode is installed you can build simulations
-written in C++ [that don't involve Python]. See the section 
-:doc:`/cpp/rapid-simulation-development` for more information. 
+Next CMake must be installed. Installers for OSX are  available 
+from http://www.cmake.org. 
 
-If you require Python and do not an appropriate version installed (see 
+If you require Python and do not have an appropriate version installed (see 
 :doc:`dependencies-versions`), download and install one from 
 http://www.python.org.
 
@@ -92,9 +91,9 @@ http://www.python.org.
       */Library/Frameworks/Python.framework* 
     
     This was the 
-    case on a particular build machine, with 2.6 installed in the former and 3.1
+    case on a particular build machine, with 2.6 installed in the former and 3.2
     in the latter. When passing the argument "-framework Python" to g++, version 2.6
-    was always used. I was unable to find a way to force use of version 3.1, 
+    was always used. I was unable to find a way to force use of version 3.2, 
     except by modifying 
     
       */System/Library/Frameworks/Python.framework/Versions/Current* 
@@ -107,3 +106,6 @@ http://www.python.org.
     in the same position you may need to make the same modification. If you are
     aware of a better solution I would be interested to know about it.
   
+Once these components are installed installed you are ready to build
+simulations written in C++. See the section
+:doc:`/cpp/rapid-simulation-development` for more information.
